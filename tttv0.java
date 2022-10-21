@@ -2,6 +2,9 @@ import java.util.Scanner;
 
 class tttv0
 {
+	/** 
+	 * Initiates and controls a game.
+	 */
 	public static void play()
 	{
 		char[][] board = {
@@ -24,7 +27,7 @@ class tttv0
 
 			place(board, player);
 
-			if (checkWin(board) != ' ') {
+			if (checkWin(board, player) != ' ') {
 				System.out.println();
 				printBoard(board);
 				System.out.println(player + " wins!");
@@ -34,6 +37,9 @@ class tttv0
 		}
 	}
 
+	/**
+	 * Places X's and O's on the board
+	 */
 	public static void place(char[][] board, char player)
 	{
 		Scanner scanner = new Scanner(System.in);
@@ -110,12 +116,18 @@ class tttv0
 		}
 	}
 
+	/**
+	 * Calls place in case of error in attempted placement
+	 */
 	public static void placeError(char[][] board, char player)
 	{
 		System.out.println("Invalid position. Please choose again.");
 		place(board, player);
 	}
 	
+	/**
+	 * Prints the board
+	 */
 	public static void printBoard(char[][] board)
 	{
 		System.out.println(board[0][0] + "|" + board[0][1] + "|" + board[0][2]);
@@ -124,72 +136,63 @@ class tttv0
 		System.out.println("-+-+-");
 		System.out.println(board[2][0] + "|" + board[2][1] + "|" + board[2][2]);
 	}
-	
-	public static char checkWin(char[][] board)
+
+	/**
+	 * Checks to see if a player has won
+	 */	
+	public static char checkWin(char[][] board, char player)
 	{
 		char winner = ' ';
-		char[] players = {'O', 'X'};
-		
-		for (int player = 0; player < 2; player++) {
-			for (int row = 0; row < 3; row++) {
-				for (int col = 0; col < 3; col++) {
-					if (board[row][col] != players[player]) {
-						break;
-					} else if (col == 2) {
-						return winner = players[player];
-					} else {
-						continue;
-					}
-				}
-			}
+
+		for (int row = 0; row < 3; row++) {
 			for (int col = 0; col < 3; col++) {
-				for (int row = 0; row < 3; row++) {
-					if (board[row][col] != players[player]) {
-						break;
-					} else if (row == 2) {
-						return winner = players[player];
-					} else {
-						continue;
-					}
-				}
-			}
-			for (int i = 0; i < 3; i++) {
-				if (board[i][i] != players[player]) {
+				if (board[row][col] != player) {
 					break;
-				} else if (i == 2) {
-					return winner = players[player];
-				} else {
-					continue;
-				}
-			}
-			for (int j = 0; j < 3; j++) {
-				if (board[j][2-j] != players[player]) {
-					break;
-				} else if (j == 2) {
-					return winner = players[player];
+				} else if (col == 2) {
+					return winner = player;
 				} else {
 					continue;
 				}
 			}
 		}
-		
+		for (int col = 0; col < 3; col++) {
+			for (int row = 0; row < 3; row++) {
+				if (board[row][col] != player) {
+					break;
+				} else if (row == 2) {
+					return winner = player;
+				} else {
+					continue;
+				}
+			}
+		}
+		for (int i = 0; i < 3; i++) {
+			if (board[i][i] != player) {
+				break;
+			} else if (i == 2) {
+				return winner = player;
+			} else {
+				continue;
+			}
+		}
+		for (int j = 0; j < 3; j++) {
+			if (board[j][2-j] != player) {
+				break;
+			} else if (j == 2) {
+				return winner = player;
+			} else {
+				continue;
+			}
+		}
+
 		return winner;
 	}
 
+	/**
+	 * Tester
+	 */
 	public static void main(String[] args)
 	{
 		play();
 	}
 }
-
-	// I can't figure out how to ask for row, col, and X/O
-
-	// Scanner input = new Scanner(System.in);
-	// System.out.println("Specify: row col X/O");
-	// String in = input.nextLine();
-	// int row = Character.getNumericValue(in.charAt(0));
-	// int col = Character.getNumericValue(in.charAt(2));
-	// char play = in.charAt(0);
-	// input.close();
-
-	// board[row][col] = play;
