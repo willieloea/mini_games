@@ -1,3 +1,7 @@
+/**************************************************************
+ * A simple two player Tic Tac Toe game played on the terminal.
+ **************************************************************/
+
 import java.util.Scanner;
 
 class tttv0
