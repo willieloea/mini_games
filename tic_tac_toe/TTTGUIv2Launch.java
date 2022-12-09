@@ -4,7 +4,7 @@ import java.awt.*;
 
 import javax.swing.*;
 
-public class LaunchMenu implements ActionListener
+public class TTTGUIv2Launch implements ActionListener
 {
     JFrame frame = new JFrame("TTT Menu");
     ImageIcon personIcon = new ImageIcon("human.png");
@@ -12,7 +12,7 @@ public class LaunchMenu implements ActionListener
     ImageIcon robotIcon = new ImageIcon("robot.png");
     JButton playBot = new JButton(robotIcon);
     
-    public LaunchMenu()
+    public TTTGUIv2Launch()
     {
         // setup buttons
         playPer.setFocusable(false);
@@ -47,6 +47,6 @@ public class LaunchMenu implements ActionListener
 
     public static void main(String[] args)
     {
-        LaunchMenu test = new LaunchMenu();
+        new TTTGUIv2Launch();
     }
 }
