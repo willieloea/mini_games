@@ -1,0 +1,9 @@
+Game 1: Tic-Tac-Toe
+	Add a bot that can play a gainst you
+	Make a screen that loads first, allowing you to choose between playing between a bot and a person
+Game 2: Connect four
+    TODO
+Game 3: Snake
+    TODO
+Game 4: Pong
+    TODO

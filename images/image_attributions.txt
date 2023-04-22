@@ -1,0 +1,2 @@
+tttgui_robot: Robot icon created by Good Ware - Flaticon (https://www.flaticon.com/free-icons/robot)
+tttgui_human: User icon created by Freepik - Flaticon (https://www.flaticon.com/free-icons/user)
